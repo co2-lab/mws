@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": false,
+    "esModuleInterop": true, // esbuild requirement
+    "isolatedModules": true, // esbuild requirement
+    "moduleResolution": "bundler"
+  },
+  "include": ["src"]
+}

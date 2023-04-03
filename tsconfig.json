@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "checkJs": false,
+    "declaration": true,
+    "diagnostics": false,
+    "downlevelIteration": true,
+    "emitDeclarationOnly": false,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["ESNext"],
+    "module": "ESNext",
+    "moduleResolution": "node16",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "outDir": "types",
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "rootDir": "src",
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "target": "ESNext",
+    "paths": {
+      "#src/*": ["src/*"]
+    }
+  },
+  "include": ["src", "test"]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "@co2-lab/mws",
+  "version": "1.0.0",
+  "repository": "https://github.com/co2-lab/mws.git",
+  "author": "Codeco <adrielcodeco@hotmail.com>",
+  "license": "MIT",
+  "bin": {
+    "mws": "bin/mws"
+  },
+  "imports": {
+    "#src/*": "./dist/*"
+  },
+  "scripts": {
+    "build": "node esbuild.js",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "glob": "^9.3.4",
+    "octokit": "^2.0.14",
+    "prompts": "^2.4.2",
+    "simple-git": "^3.17.0",
+    "yargs": "^17.7.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "@types/yargs": "^17.0.24",
+    "esbuild": "^0.17.15",
+    "typescript": "^5.0.3"
+  }
+}
