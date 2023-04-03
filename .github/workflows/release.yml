@@ -54,7 +54,7 @@ jobs:
         run: npm version patch
 
       - name: Npm publish
-        run: npm publish
+        run: npm publish --access public
 
       - name: Push changes
         uses: ad-m/github-push-action@master
