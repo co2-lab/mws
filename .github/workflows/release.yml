@@ -24,7 +24,7 @@ jobs:
         run: npm whoami
 
       - name: git user.name
-        run: git config --global user.name "codeco"
+        run: git config --global user.name "co2-lab"
 
       - name: Set up Node.js
         uses: actions/setup-node@master
@@ -56,8 +56,8 @@ jobs:
       - name: Npm version
         run: npm version patch
 
-      # - name: Npm publish
-      #   run: npm publish --access public
+      - name: Npm publish
+        run: npm publish --access public
 
       - name: Push changes
         uses: ad-m/github-push-action@master
