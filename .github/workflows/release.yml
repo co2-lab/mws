@@ -24,7 +24,7 @@ jobs:
         run: npm whoami
 
       - name: git user.name
-        run: git config --global user.name "adrielcodeco"
+        run: git config user.name
 
       - name: Set up Node.js
         uses: actions/setup-node@master
