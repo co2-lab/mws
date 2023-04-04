@@ -36,4 +36,5 @@ export const addRepo = async (options: addRepoOptions) => {
     repoProperties.tag = connectedTo
   }
   addRepoToWorkspace(repoProperties)
+  log('Done...')
 }

@@ -21,12 +21,12 @@ export interface WorkspaceConfig {
 }
 
 const getConfigPath = (createIfNotExists = false, cwd = process.cwd()) => {
-  const configPath = path.resolve(cwd, 'onhand.workspace.json')
+  const configPath = path.resolve(cwd, 'mws.json')
   if (!fs.existsSync(configPath)) {
     if (createIfNotExists) {
       fs.writeFileSync(configPath, '', { encoding: 'utf-8' })
     } else {
-      throw new Error('onhand.workspace.json not found')
+      throw new Error(`mws.json not found within ${cwd}`)
     }
   }
   return configPath

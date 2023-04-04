@@ -1,4 +1,3 @@
-import fs from 'fs'
 import prompts from 'prompts'
 import { checkAccess } from '#src/lib/git'
 import { createWorkspace } from '#src/lib/createWorkspace'
@@ -19,7 +18,6 @@ export const handler = function (argv) {
 async function createCommand(options: { verbose: boolean }) {
   const { verbose } = options
   const defaults = {
-    workspaceFolder: '.',
     workspaceName: 'workspace',
     repositoriesFolder: 'repositories',
     githubLogin: '',
@@ -27,16 +25,6 @@ async function createCommand(options: { verbose: boolean }) {
   }
   const answers = await prompts(
     [
-      {
-        type: 'text',
-        name: 'workspaceFolder',
-        message: 'Where is the workspace folder ?',
-        initial: defaults.workspaceFolder,
-        validate: async value => {
-          return fs.existsSync(value)
-        },
-        error: 'Folder not exists',
-      },
       {
         type: 'text',
         name: 'workspaceName',
@@ -58,7 +46,7 @@ async function createCommand(options: { verbose: boolean }) {
       {
         type: prev => (prev === true ? 'password' : null),
         name: 'githubAccessToken',
-        message: 'What Github Personal Access Token can I use ?',
+        message: 'What Github password or Personal Access Token can I use ?',
         validate: async value => {
           const login = await checkAccess(value, verbose)
           defaults.githubLogin = login

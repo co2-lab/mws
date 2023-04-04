@@ -1,11 +1,11 @@
-import path from 'path'
+import path from 'node:path'
+import { execSync } from 'node:child_process'
 import { logIfPermitted } from '#src/lib/log'
-// import { generate } from '#src/lib/generators'
 import * as git from '#src/lib/git'
 import { setWorkspaceConfig } from '#src/lib/workspaceConfig'
+import { initRepos } from './initRepos'
 
 type createWorkspaceOptions = {
-  workspaceFolder: string
   workspaceName: string
   repositoriesFolder: string
   pushToGit: boolean
@@ -19,7 +19,6 @@ type createWorkspaceOptions = {
 
 export const createWorkspace = async (options: createWorkspaceOptions) => {
   const {
-    workspaceFolder,
     workspaceName,
     repositoriesFolder,
     pushToGit,
@@ -30,7 +29,7 @@ export const createWorkspace = async (options: createWorkspaceOptions) => {
     githubLogin,
     verbose,
   } = options
-  const cwd = workspaceFolder ?? process.cwd()
+  const cwd = process.cwd()
   const projCwd = path.resolve(cwd, workspaceName)
   const log = logIfPermitted(verbose)
   log('Starting workspace creation...')
@@ -46,10 +45,7 @@ export const createWorkspace = async (options: createWorkspaceOptions) => {
     )
     repoUrl = cloneUrl
   }
-  // await generate({
-  //   cwd,
-  //   workspaceConfig: { workspaceName, repositoriesFolder },
-  // })
+  execSync(`${repositoriesFolder} >> .gitignore`, { cwd: projCwd })
   await setWorkspaceConfig(
     {
       workspaceName,
@@ -64,4 +60,5 @@ export const createWorkspace = async (options: createWorkspaceOptions) => {
     await git.commitChanges(projCwd, 'chore: Initializing the workspace')
     await git.pushToRemote(projCwd, githubDefaultBranchName)
   }
+  log('Done...')
 }

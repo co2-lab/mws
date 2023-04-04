@@ -10,7 +10,7 @@ esbuild
     minify: true,
     packages: 'external',
     platform: 'node',
-    sourcemap: true,
+    sourcemap: false,
     target: 'node10',
     treeShaking: true,
     tsconfig: 'tsconfig.build.json',

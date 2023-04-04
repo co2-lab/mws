@@ -50,6 +50,9 @@ jobs:
       - name: Install dependencies
         run: yarn install --ignore-scripts --ignore-engines --pure-lockfile
 
+      - name: Build
+        run: npm run build
+
       - name: Npm version
         run: npm version patch
 

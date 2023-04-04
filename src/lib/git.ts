@@ -27,8 +27,8 @@ export const createRepo = async (
   try {
     const octokit = new Octokit({ auth: personalAccessToken })
     const response = await octokit.rest.repos.createUsingTemplate({
-      template_owner: 'co2lab',
-      template_repo: 'onhand-repo-template',
+      template_owner: 'co2-lab',
+      template_repo: 'mws-repo-template',
       name: repoName,
       owner: githubLogin,
       private: privateRepo,
