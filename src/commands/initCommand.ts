@@ -19,7 +19,7 @@ export const handler = function (argv) {
 async function initCommand(options: { verbose: boolean }) {
   const config = loadWorkspaceConfig()
   const defaults = {
-    workspaceName: config.workspaceName ? config.workspaceName : path.dirname(process.cwd()),
+    workspaceName: config.workspaceName ? config.workspaceName : path.basename(process.cwd()),
     repositoriesFolder: config.repositoriesFolder ? config.repositoriesFolder : 'modules',
   }
   const answers = await prompts(
