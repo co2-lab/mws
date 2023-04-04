@@ -33,7 +33,7 @@ const getConfigPath = (createIfNotExists = false, cwd = process.cwd()) => {
 }
 
 export const loadWorkspaceConfig = (): WorkspaceConfig => {
-  const configPath = getConfigPath()
+  const configPath = getConfigPath(true)
   const json = fs.readFileSync(configPath, { encoding: 'utf-8' })
   const config = JSON.parse(json) as WorkspaceConfig
   return config
