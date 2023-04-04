@@ -3,7 +3,6 @@ import { execSync } from 'node:child_process'
 import { logIfPermitted } from '#src/lib/log'
 import * as git from '#src/lib/git'
 import { setWorkspaceConfig } from '#src/lib/workspaceConfig'
-import { initRepos } from './initRepos'
 
 type createWorkspaceOptions = {
   workspaceName: string

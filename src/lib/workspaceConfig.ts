@@ -24,7 +24,7 @@ const getConfigPath = (createIfNotExists = false, cwd = process.cwd()) => {
   const configPath = path.resolve(cwd, 'mws.json')
   if (!fs.existsSync(configPath)) {
     if (createIfNotExists) {
-      fs.writeFileSync(configPath, '', { encoding: 'utf-8' })
+      fs.writeFileSync(configPath, '{}', { encoding: 'utf-8' })
     } else {
       throw new Error(`mws.json not found within ${cwd}`)
     }
